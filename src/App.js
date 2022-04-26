@@ -1,25 +1,12 @@
-import { useEffect, useState } from "react";
+import { useWeather } from "./store/weather-context";
+import { useState } from "react";
+import CurrentWeather from "./components/CurrentWeather";
+import WeeklyWeather from "./components/WeeklyWeather";
 
 function App() {
-  const [weatherData, setWeatherData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [location, setLocation] = useState("london");
+  let { location, setLocation, isLoading } = useWeather();
 
   const [enteredLocation, setEnteredLocation] = useState("");
-
-  useEffect(() => {
-    async function test() {
-      const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=569606f42199c7a03a3785a75c44cd15&units=metric`;
-      const res = await fetch(url);
-      const data = await res.json();
-      setWeatherData(data);
-      setIsLoading(false);
-    }
-
-    test();
-  }, [location]);
-
-  console.log(weatherData);
 
   const enteredLocationChangeHandler = (e) => {
     setEnteredLocation(e.target.value);
@@ -46,8 +33,8 @@ function App() {
       {isLoading && <h2>Loading</h2>}
       {!isLoading && (
         <div>
-          <h2>{weatherData.weather[0].main}</h2>
-          <h2>Temp: {Math.round(weatherData.main.temp)} °C</h2>
+          <CurrentWeather />
+          <WeeklyWeather />
         </div>
       )}
     </div>
