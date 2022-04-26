@@ -31,7 +31,7 @@ export const WeatherProvider = ({ ...props }) => {
   useEffect(() => {
     async function getWeatherData() {
       let coordinates = await getCoordinates();
-      const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude=minutely,hourly&appid=569606f42199c7a03a3785a75c44cd15&units=metric`;
+      const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude=minutely,hourly&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric`;
       const res = await fetch(URL);
       const data = await res.json();
       setWeatherData(data);
