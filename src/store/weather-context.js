@@ -15,7 +15,7 @@ export const WeatherProvider = ({ ...props }) => {
 
       const callAPI = async () => {
         const res = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyA5CNqTNK8SXI-FCEG0OuW1UDd_q92ZdP8`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${process.env.REACT_APP_GEOCODING_API_KEY}`
         );
         const data = await res.json();
 
