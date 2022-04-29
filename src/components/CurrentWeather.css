@@ -1,0 +1,25 @@
+.current-weather-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: fit-content;
+  margin: 0 100px 0 30px;
+}
+
+.location {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.location::first-letter {
+  text-transform: capitalize;
+}
+
+.current-weather__description {
+  font-size: 28px;
+}
+
+.current-weather__temp {
+  font-size: 55px;
+}

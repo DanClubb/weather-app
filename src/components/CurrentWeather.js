@@ -1,21 +1,27 @@
 import { useWeather } from "../store/weather-context";
+import "./CurrentWeather.css";
 
 function CurrentWeather() {
-  let { weatherData } = useWeather();
+  let { weatherData, location } = useWeather();
+  console.log(weatherData);
 
   return (
-    <div>
-      <h2>{weatherData.current.weather[0].main}</h2>
-      <h2>Temp: {Math.round(weatherData.current.temp)}°</h2>
+    <div className="current-weather-container">
+      <div className="location">{location}</div>
+      <div className="current-weather__description">
+        {weatherData.current.weather[0].main}
+      </div>
+      <div className="current-weather__temp">
+        {Math.round(weatherData.current.temp)}°
+      </div>
       <div>
-        <span>H:{Math.round(weatherData.daily[0].temp.max)}° </span>
-        <span>
+        <span className="current-weather__temp-high">
+          H:{Math.round(weatherData.daily[0].temp.max)}°{" "}
+        </span>
+        <span className="current-weather__temp-low">
           L:
           {Math.round(weatherData.daily[0].temp.min)}°
         </span>
-        <img
-          src={`https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`}
-        />
       </div>
     </div>
   );

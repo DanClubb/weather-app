@@ -6,14 +6,19 @@
 
 html {
   font-family: "Noto Sans JP", sans-serif;
+  color: #48484a;
 }
 
 body {
   margin: 0;
   background-color: #c9c5c5;
   /* background-image: url("https://cdn.vox-cdn.com/thumbor/gH2PJCZz7RRB9qQUciAh0YNb9-8=/0x0:1004x753/320x213/filters:focal(422x296:582x456)/cdn.vox-cdn.com/uploads/chorus_image/image/63710251/20150428-cloud-computing.0.1489222360.0.jpg"); */
-  background-image: url("https://cdn.pixabay.com/photo/2018/08/06/22/55/sun-3588618__480.jpg");
+  /* background-image: url("https://cdn.pixabay.com/photo/2018/08/06/22/55/sun-3588618__480.jpg"); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+button {
+  cursor: pointer;
 }

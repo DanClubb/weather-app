@@ -5,6 +5,12 @@ export const WeatherProvider = ({ ...props }) => {
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [location, setLocation] = useState("london");
+  const [unit, setUnit] = useState("metric");
+
+  const changeUnit = () => {
+    if (unit === "metric") setUnit("imperial");
+    else setUnit("metric");
+  };
 
   const getCoordinates = useCallback(() => {
     return new Promise((resolve) => {
@@ -31,7 +37,7 @@ export const WeatherProvider = ({ ...props }) => {
   useEffect(() => {
     async function getWeatherData() {
       let coordinates = await getCoordinates();
-      const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude=minutely,hourly&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric`;
+      const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude=minutely&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=${unit}`;
       const res = await fetch(URL);
       const data = await res.json();
       setWeatherData(data);
@@ -39,7 +45,7 @@ export const WeatherProvider = ({ ...props }) => {
     }
 
     getWeatherData();
-  }, [getCoordinates]);
+  }, [getCoordinates, unit]);
 
   console.log(weatherData);
   return (
@@ -49,6 +55,8 @@ export const WeatherProvider = ({ ...props }) => {
         isLoading,
         location,
         setLocation,
+        unit,
+        changeUnit,
       }}
       {...props}
     />

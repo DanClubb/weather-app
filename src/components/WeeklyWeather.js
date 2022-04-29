@@ -7,21 +7,30 @@ function WeeklyWeather() {
 
   const getWeekDay = (unix_timestamp) => {
     const date = new Date(unix_timestamp * 1000);
-    return date.toLocaleDateString("en-us", { weekday: "short" });
+    return date.toLocaleDateString("en-us", { weekday: "long" });
   };
   return (
     <div>
-      <h2>week forcast</h2>
+      <div className="test">
+        <span>Day</span>
+        <span>Temp</span>
+        <span>Chance Of Rain</span>
+        <span>Humidity</span>
+      </div>
       {weekForcast.map((weekDay, index) => {
         return (
-          <span>
-            {getWeekDay(weekDay.dt)}
-            <img
-              src={`https://openweathermap.org/img/wn/${weekDay.weather[0].icon}@2x.png`}
-              alt="weather icon"
-            />
-            {Math.round(weekDay.temp.day)}°
-          </span>
+          <div className="test">
+            <span className="weekday">{getWeekDay(weekDay.dt)}</span>
+            <span>
+              <img
+                src={`https://openweathermap.org/img/wn/${weekDay.weather[0].icon}@2x.png`}
+                alt="weather icon"
+              />
+            </span>
+            <span>{Math.round(weekDay.temp.day)}°</span>
+            <span>{weekDay.pop * 100}%</span>
+            <span>{weekDay.humidity}%</span>
+          </div>
         );
       })}
     </div>
