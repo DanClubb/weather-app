@@ -11,6 +11,7 @@ export const WeatherProvider = ({ ...props }) => {
     if (unit === "metric") setUnit("imperial");
     else setUnit("metric");
   };
+  console.log(weatherData);
 
   const getCoordinates = useCallback(() => {
     return new Promise((resolve) => {
@@ -47,7 +48,6 @@ export const WeatherProvider = ({ ...props }) => {
     getWeatherData();
   }, [getCoordinates, unit]);
 
-  console.log(weatherData);
   return (
     <WeatherContext.Provider
       value={{

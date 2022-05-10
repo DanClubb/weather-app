@@ -1,4 +1,5 @@
 import { useWeather } from "../store/weather-context";
+import "./WeeklyWeather.css";
 
 function WeeklyWeather() {
   let { weatherData } = useWeather();
@@ -10,7 +11,7 @@ function WeeklyWeather() {
     return date.toLocaleDateString("en-us", { weekday: "long" });
   };
   return (
-    <div>
+    <div className="week-forcast">
       <div className="test">
         <span>Day</span>
         <span>Temp</span>
@@ -28,7 +29,7 @@ function WeeklyWeather() {
               />
             </span>
             <span>{Math.round(weekDay.temp.day)}°</span>
-            <span>{weekDay.pop * 100}%</span>
+            <span>{Math.round(weekDay.pop * 100)}%</span>
             <span>{weekDay.humidity}%</span>
           </div>
         );

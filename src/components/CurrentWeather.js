@@ -3,7 +3,6 @@ import "./CurrentWeather.css";
 
 function CurrentWeather() {
   let { weatherData, location } = useWeather();
-  console.log(weatherData);
 
   return (
     <div className="current-weather-container">

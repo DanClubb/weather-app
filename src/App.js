@@ -4,6 +4,7 @@ import CurrentWeather from "./components/CurrentWeather";
 import WeeklyWeather from "./components/WeeklyWeather";
 import "./App.css";
 import HourlyWeather from "./components/HourlyWeather";
+import AdvancedDetails from "./components/AdvancedDetails";
 
 function App() {
   let { setLocation, isLoading, changeUnit, unit } = useWeather();
@@ -49,6 +50,7 @@ function App() {
             <HourlyWeather />
           </div>
 
+          <AdvancedDetails />
           <WeeklyWeather />
         </main>
       )}

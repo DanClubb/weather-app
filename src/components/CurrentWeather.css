@@ -4,11 +4,11 @@
   justify-content: center;
   align-items: center;
   min-width: fit-content;
-  margin: 0 100px 0 30px;
+  margin: 0 150px 0 80px;
 }
 
 .location {
-  font-size: 35px;
+  font-size: 45px;
   font-weight: bold;
 }
 
@@ -17,9 +17,9 @@
 }
 
 .current-weather__description {
-  font-size: 28px;
+  font-size: 38px;
 }
 
 .current-weather__temp {
-  font-size: 55px;
+  font-size: 65px;
 }

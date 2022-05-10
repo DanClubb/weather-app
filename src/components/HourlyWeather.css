@@ -14,17 +14,3 @@
   align-items: center;
   margin: 20px 50px;
 }
-
-.test {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 100px;
-  /* margin-bottom: 80px; */
-
-  border-bottom: 1px solid #8c8c8d;
-}
-
-.weekday {
-  font-weight: bold;
-}
